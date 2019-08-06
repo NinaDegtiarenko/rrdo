@@ -8,6 +8,8 @@
 
 	@media (min-width: 1921px) {
 		background: linear-gradient(155.29deg, #27AE60 -21.76%, #0477BD 74.37%), linear-gradient(152.5deg, #2156DF 17.61%, #0477BD 79.53%), #0477BD;
+		padding-bottom: 60px;
+		padding-top: 80px;
 	}
 
 	@media (max-width: 991px) and (min-width: 320px) {
@@ -346,6 +348,10 @@
 		color: rgba(0, 0, 0, 0.45);
 		text-align: left;
 		margin-top: 42px;
+
+		@media (min-width: 1921px) {
+			color: $white;
+		}
 
 		@include tabletMedium {
 			color: $white;
