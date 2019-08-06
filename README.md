@@ -1,6 +1,12 @@
-# Starter Pack
+# Rrdo
 
 This is workflow for frontend development simple projects (blogs, landing pages, internet-shop etc.)
+
+## Папка для production - www
+
+* В этой папке находятся все скомпилированые файлы, для выгрузки на хостинг. 
+* Файл index.html - Превью
+* Файл home.html - Сама верстка лендинга
 
 ## Overview
 
