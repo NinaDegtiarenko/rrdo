@@ -1,0 +1,28 @@
+mixin header()
+    header.header.js-header
+      .container
+          .header-logo.logo
+            +svg('logo')
+          nav.header-nav.main-nav
+            ul
+              li
+                span.js-links(data-to="goals") Цели
+              li
+                span.js-links(data-to="opportunities") Возможности	
+              li
+                span.js-links(data-to="prices") Цены
+              li
+                span.js-links(data-to="conditions") Условия
+              li
+                span.js-links(data-to="contacts") Контакты
+          .header-btns
+            button.header-button.header-button--registration.js-open-p(data-open="registration-popup")
+              +svg('registration')
+              span Регистрация
+            button.header-button.header-button--login.js-open-p(data-open="login-popup")
+              +svg('user')
+              span Вход
+          div.header-burger.js-burger
+              span
+              span
+              span
