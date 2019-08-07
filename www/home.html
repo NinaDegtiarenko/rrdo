@@ -131,8 +131,11 @@
           </svg></div>
         <nav class="header-nav main-nav">
           <ul>
+            <li style="display: none;"><span class="js-links" data-to="goals">Intro</span></li>
             <li><span class="js-links" data-to="goals">Цели</span></li>
+            <li style="display: none;"><span class="js-links" data-to="pre-opportunities">Test</span></li>
             <li><span class="js-links" data-to="opportunities">Возможности </span></li>
+            <li style="display: none;"><span class="js-links" data-to="callBack">CallBack</span></li>
             <li><span class="js-links" data-to="prices">Цены</span></li>
             <li><span class="js-links" data-to="conditions">Условия</span></li>
             <li><span class="js-links" data-to="contacts">Контакты</span></li>
@@ -147,7 +150,7 @@
       </div>
     </header><!-- Main content-->
     <main class="main-page" data-page="home">
-      <section class="intro">
+      <section class="intro js-section">
         <div class="container">
           <div class="intro-text">
             <h1>Ваше решение по обработкесведений кадастра недвижимости</h1><a href="https://rrdoc.ru/">Попробовать</a>
@@ -165,7 +168,7 @@
             </g>
           </svg></div>
       </section>
-      <section class="goals" id="goals">
+      <section class="goals js-section" id="goals">
         <div class="container">
           <h2>Цели проекта</h2>
           <div class="goals-list">
@@ -199,7 +202,7 @@
           </div>
         </div>
       </section>
-      <section class="pre-opportunities">
+      <section class="pre-opportunities js-section">
         <div class="container">
           <div class="pre-opportunities-image"><img src="./static/img/pre-opportunities.png" alt="Pre-opportunities image" /></div>
           <div class="pre-opportunities-list">
@@ -214,7 +217,7 @@
         </div>
         <div class="pre-opportunities-bg"></div>
       </section>
-      <section class="opportunities" id="opportunities">
+      <section class="opportunities js-section" id="opportunities">
         <div class="container">
           <h2>Наши возможности</h2>
           <div class="opportunities-item">
@@ -280,7 +283,7 @@
           </div>
         </div>
       </section>
-      <section class="callBack" id="callBack">
+      <section class="callBack js-section" id="callBack">
         <div class="container">
           <h2>У вас остались вопросы?</h2>
           <p>Xотите перезвоним Вам в течении 5 мин?</p>
@@ -290,44 +293,60 @@
           </form>
         </div>
       </section>
-      <section class="prices" id="prices">
+      <section class="prices js-section" id="prices">
         <div class="container">
           <h2>Цены</h2>
           <p>Начните бесплатно, меняйте условия по необходимости</p>
           <div class="prices-list">
             <div class="prices-card">
-              <h3>Бесплатно</h3>
-              <div class="bonus">Один пользователь</div>
-              <ul>
-                <li>Неограниченное количество документов в хранилище</li>
-                <li>Техническая и консультационная поддержка по почте</li>
-                <li class="inActive">Неограниченное количество операций обработки</li>
-                <li class="inActive">Централизованное управление правами пользователей</li>
-                <li class="inActive">Приоритетная техническая и консультационная поддержка по телефону</li>
-              </ul><span class="price">0 &#8381;</span><span class="duration">мес/пользователь</span><button class="choose">Выбрать</button>
+              <div class="card-top">
+                <h3>Бесплатно</h3>
+                <div class="bonus">Один пользователь</div>
+                <ul>
+                  <li>Неограниченное количество документов в хранилище</li>
+                  <li>Техническая и консультационная поддержка по почте</li>
+                  <li class="inActive">Неограниченное количество операций обработки</li>
+                  <li class="inActive">Централизованное управление правами пользователей</li>
+                  <li class="inActive">Приоритетная техническая и консультационная поддержка по телефону</li>
+                </ul>
+              </div>
+              <div class="card-bottom"><span class="price">0 &#8381;</span><span class="duration">мес/пользователь</span><button class="choose">Выбрать</button></div>
             </div>
             <div class="prices-card">
-              <h3>Стандарт</h3>
-              <div class="bonus">Не более 10 сотрудников в <span class="js-toogle-tooltip">компании<div class="bonus-tooltip js-tooltip"><span>Компания</span> - группа людей, работающих с сервисом как с единым информационным пространством</div></span></div>
-              <ul>
-                <li>Неограниченное количество документов в хранилище</li>
-                <li>Техническая и консультационная поддержка по почте</li>
-                <li>Неограниченное количество операций обработки</li>
-                <li>Централизованное управление правами пользователей</li>
-                <li class="inActive">Приоритетная техническая и консультационная поддержка по телефону</li>
-              </ul><span class="price">100 &#8381;</span><span class="duration">мес/пользователь</span><button class="choose">Выбрать</button>
+              <div class="card-top">
+                <h3>Стандарт</h3>
+                <div class="bonus">Не более 10 сотрудников в <span class="js-toogle-tooltip">компании<div class="bonus-tooltip js-tooltip"><span>Компания</span> - группа людей, работающих с сервисом как с единым информационным пространством</div></span></div>
+                <ul>
+                  <li>Неограниченное количество документов в хранилище</li>
+                  <li>Техническая и консультационная поддержка по почте</li>
+                  <li>Неограниченное количество операций обработки</li>
+                  <li>Централизованное управление правами пользователей</li>
+                  <li class="inActive">Приоритетная техническая и консультационная поддержка по телефону</li>
+                </ul>
+              </div>
+              <div class="card-bottom"><span class="price">100 &#8381;</span><span class="duration">мес/пользователь</span><button class="choose">Выбрать</button></div>
             </div>
             <div class="prices-card">
-              <h3>Премиум</h3>
-              <div class="bonus">Неограниченное количество сотрудников в компании</div>
-              <ul>
-                <li>Неограниченное количество документов в хранилище</li>
-                <li>Техническая и консультационная поддержка по почте</li>
-                <li>Неограниченное количество операций обработки</li>
-                <li>Централизованное управление правами пользователей</li>
-                <li>Приоритетная техническая и консультационная поддержка по телефону</li>
-                <li>Лицензия на геоинформационную систему <a href="">geom</a> (для каждого пользователя)</li>
-              </ul><span class="price">175 &#8381;</span><span class="duration">мес/пользователь</span><button class="choose">Выбрать</button>
+              <div class="card-top">
+                <h3>Премиум</h3>
+                <div class="bonus">Неограниченное количество сотрудников в компании</div>
+                <ul>
+                  <li>Неограниченное количество документов в хранилище</li>
+                  <li>Техническая и консультационная поддержка по почте</li>
+                  <li>Неограниченное количество операций обработки</li>
+                  <li>Централизованное управление правами пользователей</li>
+                  <li>Приоритетная техническая и консультационная поддержка по телефону</li>
+                  <li>Лицензия на геоинформационную систему <a href="">geom</a> (для каждого пользователя)</li>
+                </ul>
+                <div class="present"> <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.375 20.1646V34.4146C2.375 35.7256 3.44138 36.7896 4.75 36.7896H16.625V20.1646H2.375Z"></path>
+                    <path d="M35.625 10.6647H28.1105C28.6496 10.2966 29.1128 9.93086 29.4358 9.60311C31.3524 7.67698 31.3524 4.54198 29.4358 2.61586C27.5737 0.739606 24.3295 0.744356 22.4699 2.61586C21.4391 3.64898 18.7079 7.85511 19.0855 10.6647H18.9145C19.2898 7.85511 16.5585 3.64898 15.5301 2.61586C13.6681 0.744356 10.4239 0.744356 8.56425 2.61586C6.65 4.54198 6.65 7.67698 8.56188 9.60311C8.88725 9.93086 9.35038 10.2966 9.8895 10.6647H2.375C1.06638 10.6647 0 11.7311 0 13.0397V16.6022C0 17.2577 0.532 17.7897 1.1875 17.7897H16.625V13.0397H21.375V17.7897H36.8125C37.468 17.7897 38 17.2577 38 16.6022V13.0397C38 11.7311 36.936 10.6647 35.625 10.6647ZM16.4849 10.5864C16.4849 10.5864 16.3851 10.6647 16.0455 10.6647C14.4044 10.6647 11.2718 8.95948 10.2481 7.92873C9.253 6.92648 9.253 5.29248 10.2481 4.29023C10.7303 3.80573 11.3691 3.53973 12.0484 3.53973C12.7253 3.53973 13.3641 3.80573 13.8462 4.29023C15.447 5.90048 17.0382 10.014 16.4849 10.5864ZM21.9521 10.6647C21.6149 10.6647 21.5151 10.5887 21.5151 10.5864C20.9618 10.014 22.553 5.90048 24.1537 4.29023C25.1109 3.32361 26.7853 3.31886 27.7519 4.29023C28.7494 5.29248 28.7494 6.92648 27.7519 7.92873C26.7283 8.95948 23.5956 10.6647 21.9521 10.6647Z"></path>
+                    <path d="M21.375 20.1646V36.7896H33.25C34.561 36.7896 35.625 35.7256 35.625 34.4146V20.1646H21.375Z"></path>
+                  </svg>
+                  <p>лицензия на геоинформационную систему <a href="" target="_blank">geom</a> (для каждого пользователя)</p>
+                </div>
+              </div>
+              <div class="card-bottom"><span class="price">175 &#8381;</span><span class="duration">мес/пользователь</span><button class="choose">Выбрать</button></div>
             </div>
           </div>
           <p class="gray-text">* возможно заключение договора с юридическим лицом.</p>
@@ -343,7 +362,7 @@
             </g>
           </svg></div>
       </section>
-      <section class="conditions" id="conditions">
+      <section class="conditions js-section" id="conditions">
         <div class="container">
           <h2>Условия</h2>
           <div class="conditions-wrap">
@@ -373,7 +392,7 @@
           </div>
         </div>
       </section>
-      <section class="contacts" id="contacts">
+      <section class="contacts js-section" id="contacts">
         <div class="container">
           <div class="contacts-form">
             <h2>По любым вопросам, обращайтесь</h2>

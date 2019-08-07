@@ -30,6 +30,13 @@
 	&-logo {
 		width: 200px;
 
+		@include tablet {
+			margin-left: 10px;
+		}
+
+		@include mobile {
+			margin: 0;
+		}
 
 
 		svg {

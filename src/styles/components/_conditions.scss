@@ -1,6 +1,8 @@
 .conditions {
 	min-height: 528px;
-	padding-top: 50px;
+	padding-top: 150px;
+	position: relative;
+	padding-bottom: 150px;
 
 	@include tabletMedium {
 		padding-top: 30px;
@@ -141,4 +143,8 @@
 			height: auto;
 		}
 	}
+
+	// .js-leave {
+	// 	top: 120%;
+	// }
 }

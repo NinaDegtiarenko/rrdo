@@ -201,6 +201,12 @@
 			@include tabletMedium {
 				margin: 0px auto 50px;
 			}
+
+			@include tablet {
+				max-width: 324px;
+				width: 100%;
+				font-size: 18px;
+			}
 		}
 
 

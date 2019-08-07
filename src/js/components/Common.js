@@ -11,6 +11,9 @@ import {
 	Resp,
 	fadeIn
 } from '../modules/dev/_helpers';
+require('../modules/polyfils/IntersectionObserver');
+require('../modules/polyfils/Find');
+require('../modules/polyfils/forEach');
 export class Common {
 	/**
 	 * Cache data, make preparations and initialize common scripts.
@@ -18,7 +21,12 @@ export class Common {
 	constructor() {
 		let self = this;
 		this.state = {
-			scrollTrigger: null
+			scrollTrigger: null,
+			anchorLinks: document.querySelectorAll('.js-links'),
+			activeBlock: null,
+			blockBreakpoints: [],
+			sectionEls: []
+
 		};
 
 		// initialize after construction
@@ -37,6 +45,7 @@ export class Common {
 		this.resizeCheck();
 		this.inputFocus();
 		this.openTabs();
+		this.getActiveSceen();
 	}
 
 	resizeCheck() {
@@ -117,16 +126,19 @@ export class Common {
 	}
 
 	scrollInvoke() {
-		const links = document.querySelectorAll('.js-links');
-		for (let index = 0; index < links.length; index++) {
-			const el = links[index];
-			el.addEventListener('click', (e) => {
+		for (let index = 0; index < this.state.anchorLinks.length; index++) {
+			const link = this.state.anchorLinks[index];
+			link.addEventListener('click', (e) => {
 				let scrollTargetEl = e.target.getAttribute('data-to');
 				this.scrollTo(
 					document.getElementById(scrollTargetEl),
 					1500,
 					'easeOutQuint',
 					() => {
+						if (document.querySelector('.activeAnchor')) {
+							document.querySelector('.activeAnchor').classList.remove('activeAnchor');
+						}
+						e.target.parentNode.classList.add('activeAnchor');
 						let openMenu = document.querySelector('.menu-open');
 						let openBurger = document.querySelector('.js-burger')
 						if (openMenu) {
@@ -182,6 +194,50 @@ export class Common {
 				return false;
 			});
 		}
+	}
+
+	getActiveSceen() {
+		let self = this;
+		const sections = document.querySelectorAll('.js-section');
+		const leaveTrigger = document.querySelectorAll('.js-leave');
+		this.calculateAdjustedBlockPositions();
+		this.initObserver();
+	}
+
+	calculateAdjustedBlockPositions() {
+		this.state.sectionEls = Array.prototype.slice.call(document.querySelectorAll('.js-section'));
+		const viewportHeight = window.innerHeight;
+		const docHeight = document.body.offsetHeight;
+		const scrollTop = document.documentElement.scrollTop;
+		this.state.blockBreakpoints = this.state.sectionEls.map(el => {
+			const top = el.getBoundingClientRect().top;
+			const oldOffset = top + scrollTop;
+			return oldOffset - oldOffset * (viewportHeight / docHeight);
+		})
+	}
+
+	initObserver() {
+		const options = {
+			threshold: [...Array(10)].map((el, index) => .1 * index),
+			bottom: 500
+		}
+
+		const handleIntersectionEvent = (entries) => {
+			const scrollTop = document.documentElement.scrollTop;
+			this.state.blockBreakpoints.find((bp, index) => {
+				if (Math.abs(scrollTop - bp) < 100) {
+					this.state.activeBlock = index;
+					this.state.anchorLinks.forEach(link => {
+						link.parentNode.classList.remove('activeAnchor');
+					})
+					this.state.anchorLinks[this.state.activeBlock].parentNode.classList.add('activeAnchor');
+				}
+			})
+		}
+
+		const observer = new IntersectionObserver(handleIntersectionEvent, options);
+
+		this.state.sectionEls.forEach(element => observer.observe(element));
 	}
 }
 
